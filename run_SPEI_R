@@ -1,0 +1,28 @@
+# After using permutation_experiments.py, and then use prepare_monthly_ETmax.py to get the monthly AED time series
+
+# Then use R package to get SPEI
+
+# Install R 3.6 under anaconda as the system R is upgraded to 4.0 and has a problem in installing ggplot2 and SPEI
+# Path
+/server/user/anaconda3/bin/R
+
+# FIXME Cannot set up the anaconda with Rstudio
+
+# Use Rstudio to modify the code, open the recent SPEIbase project
+serverdata: /home/user/Programs/rstudio
+/server/user/Script/SPEIbase/R/SPEI_permutation.R
+SPEI_run2021.R
+
+# Then, without using Rstudio for code editing, need to navigate to the script folder
+cd /server/user/Script/SPEIbase/R/
+
+# To run anaconda R
+/server/user/anaconda3/bin/R
+
+# Add the SPEI to the anaconda packages, in R prompt, add the path
+.libPaths(c(.libPaths(), "/home/user/R/x86_64-redhat-linux-gnu-library/3.6"))
+
+# Run the code
+source('/server/user/Script/SPEIbase/R/SPEI_permutation.R’)
+source('/server/user/Script/SPEIbase/R/SPEI_run2021.R')
+source('/server/user/Script/SPEIbase/R/SPEI_run2024.R')
